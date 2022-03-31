@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.17ebd132.chunk.css",
-    "main.js": "/static/js/main.482979e3.chunk.js",
-    "main.js.map": "/static/js/main.482979e3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f33341d5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f33341d5.js.map",
-    "static/js/2.16e26485.chunk.js": "/static/js/2.16e26485.chunk.js",
-    "static/js/2.16e26485.chunk.js.map": "/static/js/2.16e26485.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.17ebd132.chunk.css.map": "/static/css/main.17ebd132.chunk.css.map",
-    "static/js/2.16e26485.chunk.js.LICENSE.txt": "/static/js/2.16e26485.chunk.js.LICENSE.txt",
-    "static/media/difficulty-trivial.b863dbce.svg": "/static/media/difficulty-trivial.b863dbce.svg"
+    "main.css": "/beepboop/static/css/main.17ebd132.chunk.css",
+    "main.js": "/beepboop/static/js/main.482979e3.chunk.js",
+    "main.js.map": "/beepboop/static/js/main.482979e3.chunk.js.map",
+    "runtime-main.js": "/beepboop/static/js/runtime-main.f33341d5.js",
+    "runtime-main.js.map": "/beepboop/static/js/runtime-main.f33341d5.js.map",
+    "static/js/2.16e26485.chunk.js": "/beepboop/static/js/2.16e26485.chunk.js",
+    "static/js/2.16e26485.chunk.js.map": "/beepboop/static/js/2.16e26485.chunk.js.map",
+    "index.html": "/beepboop/index.html",
+    "static/css/main.17ebd132.chunk.css.map": "/beepboop/static/css/main.17ebd132.chunk.css.map",
+    "static/js/2.16e26485.chunk.js.LICENSE.txt": "/beepboop/static/js/2.16e26485.chunk.js.LICENSE.txt",
+    "static/media/difficulty-trivial.b863dbce.svg": "/beepboop/static/media/difficulty-trivial.b863dbce.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f33341d5.js",

@@ -1,0 +1,25 @@
+.todos ul {
+  padding: 0;
+}
+
+.todo-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1px;
+}
+
+.todo-color {
+  width: 30px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.todo-notes {
+  color: #70757a;
+  font-size: small;
+}
+
+.todo-date {
+  padding: 5px;
+}

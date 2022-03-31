@@ -1,0 +1,157 @@
+.app-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.center-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.App {
+  background-color: #FFFFFF;
+  padding: 40px;
+}
+
+.error {
+  color: #DB2955;
+  font-weight: bold;
+}
+
+/* User API Form */
+.user-api-form .user-id, .user-api-form .api-key {
+  width: 300px;
+}
+
+.user-api-form .submit-wrapper {
+  margin-top: 16px;
+}
+
+.user-api-form .label-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-api-form .label {
+  width: 80px;
+}
+
+.app-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.app-controls .date-header {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  font-size: 1.3em;
+  color: #757575;
+}
+
+/* Summary Section */
+section {
+  margin-top: 32px;
+}
+
+.section-header, .section-header-title {
+  display: flex;
+  align-items: center;
+}
+
+.show-no-history  {
+  margin-left: 8px;
+}
+
+section h2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+td {
+  height: 100%;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+}
+
+.dailys table, .habits table, .todos table {
+  width: 100%;
+}
+
+.date {
+  color: #757575;
+}
+
+.date-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: normal;
+  font-size: medium;
+}
+
+.link {
+  color: #3366BB;
+}
+
+.link:hover, .clickable:hover {
+  cursor: pointer;
+}
+
+/* Task */
+.task-name-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.task-name {
+  padding: 8px;
+  max-width: 400px;
+}
+
+.task-name p {
+  margin: 0;
+}
+
+.habit-cell, .daily-cell {
+  width: 40px;
+}
+
+.habit-score-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: space-evenly;
+  height: 40px;
+}
+
+/* Success/Fail Symbols */
+.success {
+  background-color: #24CC8F;
+}
+
+.fail {
+  background-color: #DB2955;
+}
+
+.pass, .habit-cell {
+  background-color: #FFDFAE;
+}
+
+.pass .symbol {
+  color: #FFBE5D;
+}
+
+.symbol {
+  color: white;
+}

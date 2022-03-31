@@ -205,7 +205,7 @@ function AppControls(props: {
         onClick={props.toggleTaskIcons}
         title="Show/Hide task icons"
       >
-        {context.showTaskIcons ? "Hide" : "Show"} Task Icons
+        {context.showTaskIcons ? "-" : "+"} Task Icons
       </span>
     </div>
   );

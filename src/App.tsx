@@ -12,11 +12,11 @@ export enum AppState {
 }
 
 function App() {
-  const [userId, setUserId] = useState<string>("");
-  const [userApiKey, setUserApiKey] = useState<string>("");
+  const [userId, setUserId] = useState<string>("9ebcbcde-d6a2-40d6-9ec1-99de1e5e7470");
+  const [userApiKey, setUserApiKey] = useState<string>("82efbb68-ab5b-426a-bcad-da7fdc3273bb");
   const [error, setError] = useState<Error>();
   const [appState, setAppState] = useState<AppState>(
-    AppState.PROMPT_FOR_USER_CREDS
+    AppState.USER_INPUT_ACCEPTED
   );
 
   const setAppError = (error: Error) => {

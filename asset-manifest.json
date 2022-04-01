@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/beepboop/static/css/main.58b23005.chunk.css",
-    "main.js": "/beepboop/static/js/main.b75b2ee9.chunk.js",
-    "main.js.map": "/beepboop/static/js/main.b75b2ee9.chunk.js.map",
+    "main.css": "/beepboop/static/css/main.799e447f.chunk.css",
+    "main.js": "/beepboop/static/js/main.2a1cccff.chunk.js",
+    "main.js.map": "/beepboop/static/js/main.2a1cccff.chunk.js.map",
     "runtime-main.js": "/beepboop/static/js/runtime-main.a1996fef.js",
     "runtime-main.js.map": "/beepboop/static/js/runtime-main.a1996fef.js.map",
-    "static/js/2.16e26485.chunk.js": "/beepboop/static/js/2.16e26485.chunk.js",
-    "static/js/2.16e26485.chunk.js.map": "/beepboop/static/js/2.16e26485.chunk.js.map",
+    "static/js/2.7399c596.chunk.js": "/beepboop/static/js/2.7399c596.chunk.js",
+    "static/js/2.7399c596.chunk.js.map": "/beepboop/static/js/2.7399c596.chunk.js.map",
     "index.html": "/beepboop/index.html",
-    "static/css/main.58b23005.chunk.css.map": "/beepboop/static/css/main.58b23005.chunk.css.map",
-    "static/js/2.16e26485.chunk.js.LICENSE.txt": "/beepboop/static/js/2.16e26485.chunk.js.LICENSE.txt",
-    "static/media/difficulty-trivial.b863dbce.svg": "/beepboop/static/media/difficulty-trivial.b863dbce.svg"
+    "static/css/main.799e447f.chunk.css.map": "/beepboop/static/css/main.799e447f.chunk.css.map",
+    "static/js/2.7399c596.chunk.js.LICENSE.txt": "/beepboop/static/js/2.7399c596.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a1996fef.js",
-    "static/js/2.16e26485.chunk.js",
-    "static/css/main.58b23005.chunk.css",
-    "static/js/main.b75b2ee9.chunk.js"
+    "static/js/2.7399c596.chunk.js",
+    "static/css/main.799e447f.chunk.css",
+    "static/js/main.2a1cccff.chunk.js"
   ]
 }

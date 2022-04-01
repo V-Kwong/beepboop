@@ -227,7 +227,7 @@ function getMonthString(dates: Dayjs[]): string {
 function getDateArray(numDays: number): Dayjs[] {
   return Array(numDays)
     .fill(0)
-    .map((_, i) => i + 1)
+    .map((_, i) => i)
     .reverse()
     .map((i) => dayjs().subtract(i, "day").startOf("day"));
 }

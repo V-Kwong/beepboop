@@ -15,7 +15,7 @@ export interface HabitHistoryProps {
 }
 
 export default function HabitHistory(props: HabitHistoryProps) {
-  const [showNoHistory, setShowNoHistory] = useState(false);
+  const [showNoHistory, setShowNoHistory] = useState(true);
 
   return (
     <section className="habits">
@@ -67,7 +67,7 @@ export function Habit(props: { habit: Task; showNoHistory: boolean }) {
   return (
     <tr>
       <td className="task-name-row">
-        <TaskIcon task={props.habit} />
+        {/* <TaskIcon task={props.habit} /> */}
         <span
           className="task-name"
           dangerouslySetInnerHTML={{ __html: md.render(text) }}

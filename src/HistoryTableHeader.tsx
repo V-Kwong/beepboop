@@ -16,7 +16,7 @@ export default function HistoryTableHeader(props: {
           <div className="section-header">
             <div className="section-header-title">
               <h2>{props.title}</h2>
-              <div
+              {/* <div
                 role="button"
                 className="show-no-history clickable"
                 title="Show/Hide tasks with no data"
@@ -27,7 +27,7 @@ export default function HistoryTableHeader(props: {
                 ) : (
                   <UnfoldIcon aria-hidden="true" />
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </th>

@@ -15,7 +15,7 @@ export interface DailyHistoryProps {
 }
 
 export default function DailyHistory(props: DailyHistoryProps) {
-  const [showNoHistory, setShowNoHistory] = useState(false);
+  const [showNoHistory, setShowNoHistory] = useState(true);
 
   return (
     <section className="dailys">
@@ -100,7 +100,7 @@ export function Daily(props: { daily: Task; showNoHistory: boolean }) {
   return (
     <tr>
       <td className="task-name-row">
-        <TaskIcon task={props.daily} />
+        {/* <TaskIcon task={props.daily} /> */}
         <span
           className="task-name"
           dangerouslySetInnerHTML={{ __html: md.render(text) }}

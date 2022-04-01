@@ -49,7 +49,7 @@
 .app-controls .date-header {
   display: flex;
   flex-direction: column;
-  margin-left: 12px;
+  /* margin-left: 12px; */
   font-size: 1.3em;
   color: #757575;
 }
@@ -119,11 +119,12 @@ th {
 }
 
 .task-name {
-  padding: 8px;
+  padding: 8px 0;
   max-width: 400px;
 }
 
 .task-name p {
+  font-size: 14px;
   margin: 0;
 }
 

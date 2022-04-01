@@ -33,7 +33,7 @@ function Todo(props: { todo: Task }) {
   const completionDate = dayjs(props.todo!.dateCompleted).format(TODO_FORMAT);
   return (
     <li className="todo-row">
-      <TaskIcon task={props.todo} />
+      {/* <TaskIcon task={props.todo} /> */}
       <span className="todo-date date">{completionDate}</span>
       <div
         className="task-name"

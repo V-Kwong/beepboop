@@ -29,7 +29,7 @@ const DEFAULT_NUM_DAYS_TO_SHOW = 7;
 const CRON_BUFFER_DURATION_SECONDS = 300;
 
 export const AppContext = React.createContext({
-  showTaskIcons: true,
+  showTaskIcons: false,
   dates: Array<Dayjs>(),
   cronIntervals: new IntervalTree(),
 });
@@ -50,7 +50,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const [numDaysToShow, setNumDaysToShow] = useState<number>(
     DEFAULT_NUM_DAYS_TO_SHOW
   );
-  const [showTaskIcons, setShowTaskIcons] = useState<boolean>(true);
+  const [showTaskIcons, setShowTaskIcons] = useState<boolean>(false);
 
   // User data
   const [cronTimes, setCronTimes] = useState<Array<[number, number]>>([]);
@@ -185,6 +185,7 @@ function AppControls(props: {
 
   return (
     <div className="app-controls">
+      <div className="date-header">{monthString}</div>
       <div>
         <span role="button" className="link" onClick={showMore}>
           +1 week
@@ -198,15 +199,15 @@ function AppControls(props: {
           </span>
         ) : null}
       </div>
-      <div className="date-header">{monthString}</div>
-      <span
+      {/* <div className="date-header">{monthString}</div> */}
+      {/* <span
         role="button"
         className="link"
         onClick={props.toggleTaskIcons}
         title="Show/Hide task icons"
       >
         {context.showTaskIcons ? "-" : "+"} Task Icons
-      </span>
+      </span> */}
     </div>
   );
 }

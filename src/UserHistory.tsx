@@ -179,13 +179,16 @@ function AppControls(props: {
   toggleTaskIcons: () => void;
 }) {
   const context = useContext(AppContext);
+  const openHabitica = () => {
+    window.open("https://habitica.com/");
+  };
   const showMore = () => props.setNumDaysToShow(props.numDaysToShow + 7);
   const showLess = () => props.setNumDaysToShow(props.numDaysToShow - 7);
   const monthString = getMonthString(context.dates);
 
   return (
     <div className="app-controls">
-      <div className="date-header">{monthString}</div>
+      <div className="date-header" onClick={openHabitica}>{monthString}</div>
       <div>
         <span role="button" className="link" onClick={showMore}>
           +1 week

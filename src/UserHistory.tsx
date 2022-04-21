@@ -164,7 +164,10 @@ export default function UserHistory(props: UserHistoryProps) {
             setNumDaysToShow={setNumDaysToShow}
             toggleTaskIcons={() => setShowTaskIcons(!showTaskIcons)}
           />
-          <HabitHistory data={habits} />
+          {/* <HabitHistory data={habits} /> */}
+          <div className="identity">
+            <span>Ambitious ♦ Mindful ♦ Disciplined</span>
+          </div>
           <DailyHistory data={dailys} />
           <TodoHistory data={todos} />
         </AppContext.Provider>
@@ -189,7 +192,8 @@ function AppControls(props: {
   return (
     <div className="app-controls">
       <div className="date-header" onClick={openHabitica}>{monthString}</div>
-      <div>
+      <div className="date-header" onClick={openHabitica}>Habitica</div>
+      {/* <div>
         <span role="button" className="link" onClick={showMore}>
           +1 week
         </span>
@@ -201,7 +205,7 @@ function AppControls(props: {
             </span>
           </span>
         ) : null}
-      </div>
+      </div> */}
       {/* <div className="date-header">{monthString}</div> */}
       {/* <span
         role="button"

@@ -51,7 +51,17 @@
   flex-direction: column;
   /* margin-left: 12px; */
   font-size: 1.3em;
-  color: #757575;
+  color: #313131;
+}
+
+.identity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+
+  font-size: 1.3em;
+  color: #313131;
 }
 
 /* Summary Section */

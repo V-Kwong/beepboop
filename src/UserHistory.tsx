@@ -88,7 +88,7 @@ export default function UserHistory(props: UserHistoryProps) {
       setHabits(result.data.filter((task: Task) => task.type === "habit"));
       setDailys(result.data.filter((task: Task) => task.type === "daily"));
       setLoadingTaskData(false);
-      console.log(HABITICA_API_URL + TASKS_PATH, JSON.stringify(result.data.filter((task: Task) => task.type === "habit")));
+      console.log(HABITICA_API_URL + TASKS_PATH, JSON.stringify(result));
     },
     (error) => {
       setError(error);
@@ -112,6 +112,30 @@ export default function UserHistory(props: UserHistoryProps) {
     .then(
       (result) => {
         console.log(HABITICA_API_URL + '/tasks/30c753a4-c306-475d-8c2a-464fda9fbaa3/score/up', JSON.stringify(result));
+      },
+      (error) => {
+        setError(error);
+      })
+    .then(readData);
+  }
+
+  const checkTomorrowPlan = () => {
+    return fetch(
+      HABITICA_API_URL + '/tasks/13ab931b-b04a-47f0-9555-ad3bc4428dd6/score/up',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-user": userId,
+          "x-api-key": userApiKey,
+          "x-client": CLIENT_KEY,
+        },
+      }
+    ).then((res) => res.json())
+    .then(handleApiError)
+    .then(
+      (result) => {
+        console.log(HABITICA_API_URL + '/tasks/13ab931b-b04a-47f0-9555-ad3bc4428dd6/score/up', JSON.stringify(result));
       },
       (error) => {
         setError(error);
@@ -198,6 +222,7 @@ export default function UserHistory(props: UserHistoryProps) {
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}
           <div className="date-header" onClick={scorePomodoro}>+ Score Pomodoro</div>
+          <div className="date-header" onClick={checkTomorrowPlan}>Check P;ans</div>
         </AppContext.Provider>
       </div>
     );

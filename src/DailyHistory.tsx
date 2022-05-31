@@ -7,6 +7,7 @@ import { AppContext } from "./UserHistory";
 import { TaskIcon } from "./TaskIcon";
 import HistoryTableHeader from "./HistoryTableHeader";
 import logger from "./logger";
+import { Habit } from "./HabitHistory";
 
 var md = require("habitica-markdown");
 
@@ -26,7 +27,9 @@ export default function DailyHistory(props: DailyHistoryProps) {
           showNoHistory={showNoHistory}
         />
         <tbody>
-          {props.data.map((daily) => (
+          {props.data.map((daily) => daily.type === 'habit' ? (
+            <Habit key={daily.id} showNoHistory={showNoHistory} habit={daily} />
+          ) : (
             <Daily key={daily.id} showNoHistory={showNoHistory} daily={daily} />
           ))}
         </tbody>

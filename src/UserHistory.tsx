@@ -80,6 +80,45 @@ export default function UserHistory(props: UserHistoryProps) {
 
   const setError = props.setError;
 
+  const readData = () => fetchWithApiKey(HABITICA_API_URL + TASKS_PATH)
+  .then((res) => res.json())
+  .then(handleApiError)
+  .then(
+    (result) => {
+      setHabits(result.data.filter((task: Task) => task.type === "habit"));
+      setDailys(result.data.filter((task: Task) => task.type === "daily"));
+      setLoadingTaskData(false);
+      console.log(HABITICA_API_URL + TASKS_PATH, JSON.stringify(result.data.filter((task: Task) => task.type === "habit")));
+    },
+    (error) => {
+      setError(error);
+    }
+  );
+
+  const scorePomodoro = () => {
+    return fetch(
+      HABITICA_API_URL + '/tasks/30c753a4-c306-475d-8c2a-464fda9fbaa3/score/up',
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-user": userId,
+          "x-api-key": userApiKey,
+          "x-client": CLIENT_KEY,
+        },
+      }
+    ).then((res) => res.json())
+    .then(handleApiError)
+    .then(
+      (result) => {
+        console.log(HABITICA_API_URL + '/tasks/30c753a4-c306-475d-8c2a-464fda9fbaa3/score/up', JSON.stringify(result));
+      },
+      (error) => {
+        setError(error);
+      })
+    .then(readData);
+  }
+
   // Fetch user data to get cron times.
   useEffect(() => {
     fetchWithApiKey(HABITICA_API_URL + USER_PATH)
@@ -106,20 +145,7 @@ export default function UserHistory(props: UserHistoryProps) {
 
   // Fetch habit and daily data.
   useEffect(() => {
-    fetchWithApiKey(HABITICA_API_URL + TASKS_PATH)
-      .then((res) => res.json())
-      .then(handleApiError)
-      .then(
-        (result) => {
-          setHabits(result.data.filter((task: Task) => task.type === "habit"));
-          setDailys(result.data.filter((task: Task) => task.type === "daily"));
-          setLoadingTaskData(false);
-          console.log(HABITICA_API_URL + TASKS_PATH, JSON.stringify(result));
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+    readData()
   }, []); // DO NOT REMOVE the empty dependency array
 
   // Fetch completed todos.
@@ -171,6 +197,7 @@ export default function UserHistory(props: UserHistoryProps) {
           <DailyHistory data={[...dailys.slice(0, -1), ...habits, ...dailys.slice(-1)]} />
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}
+          <div className="date-header" onClick={scorePomodoro}>+ Score Pomodoro</div>
         </AppContext.Provider>
       </div>
     );

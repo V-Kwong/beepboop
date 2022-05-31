@@ -89,9 +89,13 @@ function HabitScore(props: { up: number; down: number }) {
   return (
     <td className="habit-cell">
       <div className="habit-score-container">
-        {props.up > 0 && (
+        {props.up > 0 ? (
           <div className={[colour, "center-wrapper"].join(' ')}>
             <span>+{props.up}</span>
+          </div>
+        ) : (
+          <div className="fail center-wrapper">
+            <span>{props.up}</span>
           </div>
         )}
         {/* {props.down > 0 && (

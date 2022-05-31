@@ -85,19 +85,20 @@ export function Habit(props: { habit: Task; showNoHistory: boolean }) {
 }
 
 function HabitScore(props: { up: number; down: number }) {
+  let colour = props.up >= 4 ? "success" : "fail";
   return (
     <td className="habit-cell">
       <div className="habit-score-container">
         {props.up > 0 && (
-          <div className="success center-wrapper">
+          <div className={[colour, "center-wrapper"].join(' ')}>
             <span>+{props.up}</span>
           </div>
         )}
-        {props.down > 0 && (
+        {/* {props.down > 0 && (
           <div className="fail center-wrapper">
             <span>-{props.down}</span>
           </div>
-        )}
+        )} */}
       </div>
     </td>
   );

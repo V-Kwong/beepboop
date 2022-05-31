@@ -154,10 +154,12 @@ th {
 /* Success/Fail Symbols */
 .success {
   background-color: #24cc8f;
+  flex: 1;
 }
 
 .fail {
   background-color: #db2955;
+  flex: 1;
 }
 
 .pass,

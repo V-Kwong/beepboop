@@ -114,6 +114,7 @@ export default function UserHistory(props: UserHistoryProps) {
           setHabits(result.data.filter((task: Task) => task.type === "habit"));
           setDailys(result.data.filter((task: Task) => task.type === "daily"));
           setLoadingTaskData(false);
+          console.log(HABITICA_API_URL + TASKS_PATH, JSON.stringify(result));
         },
         (error) => {
           setError(error);
@@ -164,12 +165,12 @@ export default function UserHistory(props: UserHistoryProps) {
             setNumDaysToShow={setNumDaysToShow}
             toggleTaskIcons={() => setShowTaskIcons(!showTaskIcons)}
           />
-          {/* <HabitHistory data={habits} /> */}
           <div className="identity">
             <span>Ambitious ♦ Mindful ♦ Disciplined</span>
           </div>
-          <DailyHistory data={dailys} />
-          <TodoHistory data={todos} />
+          <DailyHistory data={[...dailys.slice(0, -1), ...habits, ...dailys.slice(-1)]} />
+          {/* <HabitHistory data={habits} /> */}
+          {/* <TodoHistory data={todos} /> */}
         </AppContext.Provider>
       </div>
     );

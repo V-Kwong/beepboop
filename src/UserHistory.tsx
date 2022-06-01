@@ -150,7 +150,7 @@ export default function UserHistory(props: UserHistoryProps) {
 
   const dailyGoal = () => scoreTask('b85dc3ec-7836-4827-aa68-e7e605c1489e')
 
-  const scorePomodoro = () => scoreTask('30c753a4-c306-475d-8c2a-464fda9fbaa3')
+  const scorePomodoro = () => scoreTask('ec59d7c1-e692-4b17-b2e0-6b6a76aedcc3')
 
   const reflect = () => scoreTask('13ab931b-b04a-47f0-9555-ad3bc4428dd6')
 

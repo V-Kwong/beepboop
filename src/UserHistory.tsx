@@ -259,8 +259,10 @@ export default function UserHistory(props: UserHistoryProps) {
           <DailyHistory data={[...dailys.slice(0, -1), ...habits, ...dailys.slice(-1)]} />
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}
-          <div className="date-header" onClick={scorePomodoro}>+ Score Pomodoro</div>
-          <div className="date-header" onClick={checkTomorrowPlan}>Check P;ans</div>
+          <div className="buttons-container">
+            <div className="button-container" onClick={scorePomodoro}>✔  Pomodoro</div>
+            <div className="button-container" onClick={checkTomorrowPlan}>✔  Plan</div>
+          </div>
           <Confetti
             width={windowDimensions.width}
             height={windowDimensions.height}

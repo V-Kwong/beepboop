@@ -174,3 +174,17 @@ th {
 .symbol {
   color: white;
 }
+
+.buttons-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

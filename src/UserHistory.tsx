@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import IntervalTree from "node-interval-tree";
 import dayjs, { Dayjs } from "dayjs";
 import Confetti from 'react-confetti';
+import Button from 'react-bootstrap/Button';
 import logger from "./logger";
 
 import { Task, History } from "./HabiticaTypes";
@@ -122,9 +123,9 @@ export default function UserHistory(props: UserHistoryProps) {
     }
   );
 
-  const scorePomodoro = () => {
+  const scoreTask = (taskId: string) => {
     return fetch(
-      HABITICA_API_URL + '/tasks/30c753a4-c306-475d-8c2a-464fda9fbaa3/score/up',
+      HABITICA_API_URL + '/tasks/' + taskId + '/score/up',
       {
         method: "POST",
         headers: {
@@ -139,7 +140,7 @@ export default function UserHistory(props: UserHistoryProps) {
     .then(
       (result) => {
         setShowConfetti(true)
-        console.log(HABITICA_API_URL + '/tasks/30c753a4-c306-475d-8c2a-464fda9fbaa3/score/up', JSON.stringify(result));
+        console.log(HABITICA_API_URL + '/tasks/' + taskId + '/score/up', JSON.stringify(result));
       },
       (error) => {
         setError(error);
@@ -147,30 +148,11 @@ export default function UserHistory(props: UserHistoryProps) {
     .then(readData);
   }
 
-  const checkTomorrowPlan = () => {
-    return fetch(
-      HABITICA_API_URL + '/tasks/13ab931b-b04a-47f0-9555-ad3bc4428dd6/score/up',
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-user": userId,
-          "x-api-key": userApiKey,
-          "x-client": CLIENT_KEY,
-        },
-      }
-    ).then((res) => res.json())
-    .then(handleApiError)
-    .then(
-      (result) => {
-        setShowConfetti(true)
-        console.log(HABITICA_API_URL + '/tasks/13ab931b-b04a-47f0-9555-ad3bc4428dd6/score/up', JSON.stringify(result));
-      },
-      (error) => {
-        setError(error);
-      })
-    .then(readData);
-  }
+  const dailyGoal = () => scoreTask('b85dc3ec-7836-4827-aa68-e7e605c1489e')
+
+  const scorePomodoro = () => scoreTask('30c753a4-c306-475d-8c2a-464fda9fbaa3')
+
+  const reflect = () => scoreTask('13ab931b-b04a-47f0-9555-ad3bc4428dd6')
 
   useEffect(() => {
     function handleResize() {
@@ -260,8 +242,15 @@ export default function UserHistory(props: UserHistoryProps) {
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}
           <div className="buttons-container">
-            <div className="button-container" onClick={scorePomodoro}>✔  Pomodoro</div>
-            <div className="button-container" onClick={checkTomorrowPlan}>✔  Plan</div>
+            <div className="button-container">
+              <Button variant="outline-success" onClick={dailyGoal}>✓ Daily Goal</Button>
+            </div>
+            <div className="button-container">
+              <Button variant="outline-success" onClick={scorePomodoro}>✓ Pomodoro</Button>
+            </div>
+            <div className="button-container">
+              <Button variant="outline-success" onClick={reflect}>✓ Reflect</Button>
+            </div>
           </div>
           <Confetti
             width={windowDimensions.width}

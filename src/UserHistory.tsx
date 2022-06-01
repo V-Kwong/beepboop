@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import IntervalTree from "node-interval-tree";
 import dayjs, { Dayjs } from "dayjs";
+import Confetti from 'react-confetti';
 import logger from "./logger";
 
 import { Task, History } from "./HabiticaTypes";
 import DailyHistory from "./DailyHistory";
-import HabitHistory from "./HabitHistory";
-import TodoHistory from "./TodoHistory";
 
 export const DATE_KEY_FORMAT = "YYYYMMDD";
 
@@ -28,6 +27,24 @@ const DEFAULT_NUM_DAYS_TO_SHOW = 7;
  */
 const CRON_BUFFER_DURATION_SECONDS = 300;
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+function getRandomInt(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+function setRandConfettiNum() {
+  return getRandomInt(2000, 5000)
+}
+
 export const AppContext = React.createContext({
   showTaskIcons: false,
   dates: Array<Dayjs>(),
@@ -41,6 +58,10 @@ interface UserHistoryProps {
 }
 
 export default function UserHistory(props: UserHistoryProps) {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [showConfetti, setShowConfetti] = useState<boolean>(false);
+  const [numberOfPieces, setNumberOfPieces] = useState<number>(setRandConfettiNum());
+
   // App states
   const [isLoadingUserData, setLoadingUserData] = useState(true);
   const [isLoadingTaskData, setLoadingTaskData] = useState(true);
@@ -59,6 +80,12 @@ export default function UserHistory(props: UserHistoryProps) {
   const [todos, setTodos] = useState<Task[]>([]);
 
   const { userId, userApiKey } = props;
+
+  const onConfettiComplete = () => {
+    setNumberOfPieces(setRandConfettiNum())
+    setShowConfetti(false)
+  }
+
   const fetchWithApiKey = (url: string) => {
     return fetch(url, {
       method: "GET",
@@ -111,6 +138,7 @@ export default function UserHistory(props: UserHistoryProps) {
     .then(handleApiError)
     .then(
       (result) => {
+        setShowConfetti(true)
         console.log(HABITICA_API_URL + '/tasks/30c753a4-c306-475d-8c2a-464fda9fbaa3/score/up', JSON.stringify(result));
       },
       (error) => {
@@ -135,6 +163,7 @@ export default function UserHistory(props: UserHistoryProps) {
     .then(handleApiError)
     .then(
       (result) => {
+        setShowConfetti(true)
         console.log(HABITICA_API_URL + '/tasks/13ab931b-b04a-47f0-9555-ad3bc4428dd6/score/up', JSON.stringify(result));
       },
       (error) => {
@@ -142,6 +171,15 @@ export default function UserHistory(props: UserHistoryProps) {
       })
     .then(readData);
   }
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Fetch user data to get cron times.
   useEffect(() => {
@@ -223,6 +261,15 @@ export default function UserHistory(props: UserHistoryProps) {
           {/* <TodoHistory data={todos} /> */}
           <div className="date-header" onClick={scorePomodoro}>+ Score Pomodoro</div>
           <div className="date-header" onClick={checkTomorrowPlan}>Check P;ans</div>
+          <Confetti
+            width={windowDimensions.width}
+            height={windowDimensions.height}
+            run={showConfetti}
+            onConfettiComplete={onConfettiComplete}
+            numberOfPieces={numberOfPieces}
+            recycle={false}
+            tweenDuration={50000}
+          />
         </AppContext.Provider>
       </div>
     );

@@ -9,12 +9,15 @@ export default function HistoryTableHeader(props: {
   showNoHistory: boolean;
 }) {
   const context = useContext(AppContext);
+  const openHabitica = () => {
+    window.open("https://habitica.com/");
+  };
   return (
     <thead>
       <tr>
         <th>
           <div className="section-header">
-            <div className="section-header-title">
+            <div className="section-header-title" onClick={openHabitica}>
               <h2>{props.title}</h2>
               {/* <div
                 role="button"

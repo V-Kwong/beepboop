@@ -22,7 +22,7 @@ export default function DailyHistory(props: DailyHistoryProps) {
     <section className="dailys">
       <table>
         <HistoryTableHeader
-          title="Dailies"
+          title="Habits"
           setShowNoHistory={setShowNoHistory}
           showNoHistory={showNoHistory}
         />

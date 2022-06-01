@@ -97,6 +97,7 @@ th {
 .habits table,
 .todos table {
   width: 100%;
+  border-collapse: separate;
 }
 
 .date {

@@ -76,6 +76,16 @@ export function Habit(props: { habit: Task; showNoHistory: boolean }) {
       {dailyScores.map(({day, score}) => {
         if (score) {
           return <HabitScore key={day} up={score[0]} down={score[1]} />;
+        } else if (day !== dayjs(new Date()).format(DATE_KEY_FORMAT)) {
+          return (
+            <td key={day} className="habit-cell">
+              <div className="habit-score-container">
+                <div className="fail center-wrapper">
+                  <span>✖</span>
+                </div>
+              </div>
+            </td>
+          )
         } else {
           return <td key={day} className="habit-cell">&nbsp;</td>;
         }

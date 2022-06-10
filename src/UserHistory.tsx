@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import IntervalTree from "node-interval-tree";
 import dayjs, { Dayjs } from "dayjs";
 import Confetti from 'react-confetti';
@@ -46,6 +46,26 @@ function setRandConfettiNum() {
   return getRandomInt(2000, 5000)
 }
 
+const TWENTY_FIVE_MIN = 25 * 60;
+
+function fancyTimeFormat(duration : number) {   
+  // Hours, minutes and seconds
+  var hrs = ~~(duration / 3600);
+  var mins = ~~((duration % 3600) / 60);
+  var secs = ~~duration % 60;
+
+  // Output like "1:01" or "4:03:59" or "123:03:59"
+  var ret = "";
+
+  if (hrs > 0) {
+      ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+  }
+
+  ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+  ret += "" + secs;
+  return ret;
+}
+
 export const AppContext = React.createContext({
   showTaskIcons: false,
   dates: Array<Dayjs>(),
@@ -79,6 +99,12 @@ export default function UserHistory(props: UserHistoryProps) {
   const [habits, setHabits] = useState<Task[]>([]);
   const [dailys, setDailys] = useState<Task[]>([]);
   const [todos, setTodos] = useState<Task[]>([]);
+
+  // Pomodoro
+  const [inPomodoroSession, setInPomodoroSession] = useState(false);
+  const [pomodoroTimer, setPomodoroTimer] = useState(TWENTY_FIVE_MIN);
+  const pomodoroTimerRef = useRef(pomodoroTimer);
+  pomodoroTimerRef.current = pomodoroTimer;
 
   const { userId, userApiKey } = props;
 
@@ -208,6 +234,31 @@ export default function UserHistory(props: UserHistoryProps) {
       );
   }, []); // DO NOT REMOVE the empty dependency array
 
+  const startPomodoro = () => {
+    setInPomodoroSession(true)
+    pomodoroTimeout()
+    alert('Affirm: Who do I want to be?\n\nWhat do I want to accomplish right now?\n\nBreakdown the task.')
+  }
+
+  const runPomodoro = () => {
+    let newTimer = pomodoroTimerRef.current - 1
+    setPomodoroTimer(newTimer)
+
+    if (newTimer === 0) {
+      finishPomodoro()
+    } else {
+      pomodoroTimeout()
+    }
+  }
+
+  const pomodoroTimeout = () => setTimeout(runPomodoro, 1000)
+
+  const finishPomodoro = () => {
+    setInPomodoroSession(false)
+    setPomodoroTimer(TWENTY_FIVE_MIN)
+    scorePomodoro()
+  }
+
   if (isLoadingUserData || isLoadingTaskData || isLoadingTodoData) {
     return (
       <div className="App">
@@ -246,7 +297,9 @@ export default function UserHistory(props: UserHistoryProps) {
               <Button variant="outline-success" onClick={dailyGoal}>✓ Daily Goal</Button>
             </div>
             <div className="button-container">
-              <Button variant="outline-success" onClick={scorePomodoro}>✓ Pomodoro</Button>
+              <Button variant="outline-success" onClick={inPomodoroSession ? undefined : startPomodoro}>
+                {inPomodoroSession ? fancyTimeFormat(pomodoroTimer) : '✓ Pomodoro'}
+              </Button>
             </div>
             <div className="button-container">
               <Button variant="outline-success" onClick={reflect}>✓ Reflect</Button>

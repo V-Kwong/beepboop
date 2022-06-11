@@ -186,6 +186,14 @@ export default function UserHistory(props: UserHistoryProps) {
   const reflect = () => scoreTask('13ab931b-b04a-47f0-9555-ad3bc4428dd6')
 
   useEffect(() => {
+    if (!("Notification" in window)) {
+      console.log("This browser does not support desktop notification");
+    } else {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  useEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
@@ -243,6 +251,9 @@ export default function UserHistory(props: UserHistoryProps) {
     setInPomodoroSession(true)
     pomodoroTimeout()
     handleShowDialog()
+    new Notification('pomodoro is finished yo 🎉', {
+      requireInteraction: true,
+    })
   }
 
   const runPomodoro = () => {

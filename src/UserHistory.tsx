@@ -3,6 +3,7 @@ import IntervalTree from "node-interval-tree";
 import dayjs, { Dayjs } from "dayjs";
 import Confetti from 'react-confetti';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal'
 import logger from "./logger";
 
 import { Task, History } from "./HabiticaTypes";
@@ -105,6 +106,10 @@ export default function UserHistory(props: UserHistoryProps) {
   const [pomodoroTimer, setPomodoroTimer] = useState(TWENTY_FIVE_MIN);
   const pomodoroTimerRef = useRef(pomodoroTimer);
   pomodoroTimerRef.current = pomodoroTimer;
+
+  const [showDialog, setShowDialog] = useState(false);
+  const handleCloseDialog = () => setShowDialog(false);
+  const handleShowDialog = () => setShowDialog(true);
 
   const { userId, userApiKey } = props;
 
@@ -237,7 +242,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const startPomodoro = () => {
     setInPomodoroSession(true)
     pomodoroTimeout()
-    alert('Affirm: Who do I want to be?\n\nWhat do I want to accomplish right now?\n\nBreakdown the task.')
+    handleShowDialog()
   }
 
   const runPomodoro = () => {
@@ -314,6 +319,23 @@ export default function UserHistory(props: UserHistoryProps) {
             recycle={false}
             tweenDuration={50000}
           />
+          <Modal show={showDialog} onHide={handleCloseDialog}>
+            <Modal.Header closeButton>
+              <Modal.Title>lets get this bread 🍞</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>
+                Affirm: Who do I want to be?<br /><br />
+                What do I want to accomplish right now?<br /><br />
+                Breakdown the task.
+              </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseDialog}>
+                go brrrr
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </AppContext.Provider>
       </div>
     );

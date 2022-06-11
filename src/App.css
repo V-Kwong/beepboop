@@ -189,3 +189,9 @@ th {
   align-items: center;
   text-align: center; */
 }
+
+.dialog {
+  width: fit-content !important;
+  margin-top: 10vh !important;
+  margin-left: 10vw !important;
+}

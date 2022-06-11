@@ -319,7 +319,7 @@ export default function UserHistory(props: UserHistoryProps) {
             recycle={false}
             tweenDuration={50000}
           />
-          <Modal show={showDialog} onHide={handleCloseDialog}>
+          <Modal show={showDialog} onHide={handleCloseDialog} dialogClassName="dialog">
             <Modal.Header closeButton>
               <Modal.Title>lets get this bread 🍞</Modal.Title>
             </Modal.Header>
@@ -332,7 +332,7 @@ export default function UserHistory(props: UserHistoryProps) {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseDialog}>
-                go brrrr
+                🚨 go brrrr
               </Button>
             </Modal.Footer>
           </Modal>

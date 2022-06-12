@@ -251,9 +251,6 @@ export default function UserHistory(props: UserHistoryProps) {
     setInPomodoroSession(true)
     pomodoroTimeout()
     handleShowDialog()
-    new Notification('pomodoro is finished yo 🎉', {
-      requireInteraction: true,
-    })
   }
 
   const runPomodoro = () => {
@@ -273,6 +270,11 @@ export default function UserHistory(props: UserHistoryProps) {
     setInPomodoroSession(false)
     setPomodoroTimer(TWENTY_FIVE_MIN)
     scorePomodoro()
+    new Notification('pomodoro is finished yo 🎉', {
+      icon: 'https://vwskwong.github.io/assets/Logo/apple-touch-icon.png',
+      image: 'https://c.tenor.com/I4d1QyAghmUAAAAM/hooray-letsgo.gif',
+      requireInteraction: true,
+    })
   }
 
   if (isLoadingUserData || isLoadingTaskData || isLoadingTodoData) {

@@ -337,7 +337,8 @@ export default function UserHistory(props: UserHistoryProps) {
               <Modal.Title>lets get this bread 🍞</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>
+              <p style={{margin: 0}}>
+                Draw my line on mediocrity.<br /><br />
                 Affirm: Who do I want to be?<br /><br />
                 Visualize: negative + positive<br /><br />
                 What do I want to accomplish right now?<br /><br />

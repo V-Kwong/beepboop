@@ -319,9 +319,9 @@ export default function UserHistory(props: UserHistoryProps) {
                 {inPomodoroSession ? fancyTimeFormat(pomodoroTimer) : '✓ Pomodoro'}
               </Button>
             </div>
-            <div className="button-container">
+            {/* <div className="button-container">
               <Button variant="outline-success" onClick={reflect}>✓ Reflect</Button>
-            </div>
+            </div> */}
           </div>
           <Confetti
             width={windowDimensions.width}
@@ -339,8 +339,10 @@ export default function UserHistory(props: UserHistoryProps) {
             <Modal.Body>
               <p>
                 Affirm: Who do I want to be?<br /><br />
+                Visualize: negative + positive<br /><br />
                 What do I want to accomplish right now?<br /><br />
-                Breakdown the task.
+                Breakdown the task.<br/><br/>
+                Point n Call.
               </p>
             </Modal.Body>
             <Modal.Footer>

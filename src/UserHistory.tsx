@@ -267,6 +267,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const pomodoroTimeout = () => setTimeout(runPomodoro, 1000)
 
   const finishPomodoro = () => {
+    handleCloseDialog()
     setInPomodoroSession(false)
     setPomodoroTimer(TWENTY_FIVE_MIN)
     scorePomodoro()
@@ -332,18 +333,18 @@ export default function UserHistory(props: UserHistoryProps) {
             recycle={false}
             tweenDuration={50000}
           />
-          <Modal show={showDialog} onHide={handleCloseDialog} dialogClassName="dialog">
+          <Modal show={showDialog} onHide={handleCloseDialog} centered backdropClassName="dialogWrapper" dialogClassName="dialog">
             <Modal.Header closeButton>
-              <Modal.Title>lets get this bread 🍞</Modal.Title>
+              <Modal.Title>lets goo 🚨 {fancyTimeFormat(pomodoroTimer)} 🚨</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p style={{margin: 0}}>
-                Draw my line on mediocrity.<br /><br />
-                Affirm: Who do I want to be?<br /><br />
-                Visualize: negative + positive<br /><br />
-                What do I want to accomplish right now?<br /><br />
-                Breakdown the task.<br/><br/>
-                Point n Call.
+              <p className="dialogText">
+                ✍️ Draw my line on mediocrity.<br />
+                👁 Visualize: negative + positive<br />
+                💬 Affirm: Who do I want to be?<br />
+                🎯 What do I want to accomplish right now?<br />
+                🧩 Breakdown the task<br/>
+                🫵 Point n Call
               </p>
             </Modal.Body>
             <Modal.Footer>

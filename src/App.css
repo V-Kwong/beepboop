@@ -191,8 +191,41 @@ th {
   text-align: center; */
 }
 
+.dialogWrapper {
+  opacity: 0.2 !important;
+}
+
+.modal {
+  margin-left: 7.5vw !important;
+  height: 475.56px !important;
+  width: 429.750px !important;
+}
+
 .dialog {
   width: fit-content !important;
-  margin-top: 2.5vh !important;
-  margin-left: 10vw !important;
+}
+
+.modal-header {
+  justify-content: center !important;
+  padding: 6px !important;
+}
+
+.dialog button {
+  display: none !important;
+}
+
+.modal-body {
+  padding: 6px 12px !important;
+}
+
+.dialogText {
+  margin: 0px;
+  text-align: center;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  line-height: 40px;
+}
+
+.modal-footer {
+  display: none !important;
 }

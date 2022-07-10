@@ -110,25 +110,37 @@ export function Daily(props: { daily: Task; showNoHistory: boolean }) {
         />
       </td>
       {dailyDeltas.map(({day, delta}) => (
-        <DailyStatus key={day} delta={delta!} />
+        <DailyStatus key={day} day={day} delta={delta!} />
       ))}
     </tr>
   );
 }
 
-function DailyStatus(props: { delta: number | undefined }) {
+function DailyStatus(props: { day: string, delta: number | undefined }) {
   let classNames = ["daily-cell"];
   let symbol;
-  if (!props.delta || props.delta === 0) {
-    classNames.push("pass");
-    symbol = "\xa0";
-  } else if (props.delta > 0) {
-    classNames.push("success");
-    symbol = "✓";
+
+  if(props.day !== dayjs(new Date()).format(DATE_KEY_FORMAT)) {
+    if (!props.delta || props.delta <= 0) {
+      classNames.push("fail");
+      symbol = "✖";
+    } else {
+      classNames.push("success");
+      symbol = "✓";
+    }
   } else {
-    classNames.push("fail");
-    symbol = "✖";
+    if (!props.delta || props.delta === 0) {
+      classNames.push("pass");
+      symbol = "\xa0";
+    } else if (props.delta > 0) {
+      classNames.push("success");
+      symbol = "✓";
+    } else {
+      classNames.push("fail");
+      symbol = "✖";
+    }
   }
+
   return (
     <td className={classNames.join(" ")}>
       {symbol && (

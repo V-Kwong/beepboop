@@ -47,7 +47,7 @@ function setRandConfettiNum() {
   return getRandomInt(2000, 5000)
 }
 
-const TWENTY_FIVE_MIN = 25 * 60;
+const NINTY_MIN = 90 * 60;
 
 function fancyTimeFormat(duration : number) {   
   // Hours, minutes and seconds
@@ -103,7 +103,7 @@ export default function UserHistory(props: UserHistoryProps) {
 
   // Pomodoro
   const [inPomodoroSession, setInPomodoroSession] = useState(false);
-  const [pomodoroTimer, setPomodoroTimer] = useState(TWENTY_FIVE_MIN);
+  const [pomodoroTimer, setPomodoroTimer] = useState(NINTY_MIN);
   const pomodoroTimerRef = useRef(pomodoroTimer);
   pomodoroTimerRef.current = pomodoroTimer;
 
@@ -269,7 +269,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const finishPomodoro = () => {
     handleCloseDialog()
     setInPomodoroSession(false)
-    setPomodoroTimer(TWENTY_FIVE_MIN)
+    setPomodoroTimer(NINTY_MIN)
     scorePomodoro()
     new Notification('pomodoro is finished yo 🎉', {
       icon: 'https://vwskwong.github.io/assets/Logo/apple-touch-icon.png',
@@ -312,12 +312,12 @@ export default function UserHistory(props: UserHistoryProps) {
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}
           <div className="buttons-container">
-            <div className="button-container">
+            {/* <div className="button-container">
               <Button variant="outline-success" onClick={dailyGoal}>✓ Daily Goal</Button>
-            </div>
+            </div> */}
             <div className="button-container">
               <Button variant="outline-success" onClick={inPomodoroSession ? undefined : startPomodoro}>
-                {inPomodoroSession ? fancyTimeFormat(pomodoroTimer) : '✓ Pomodoro'}
+                {inPomodoroSession ? fancyTimeFormat(pomodoroTimer) : '🧠 Pomodoro'}
               </Button>
             </div>
             {/* <div className="button-container">
@@ -333,7 +333,7 @@ export default function UserHistory(props: UserHistoryProps) {
             recycle={false}
             tweenDuration={50000}
           />
-          <Modal show={showDialog} onHide={handleCloseDialog} centered backdropClassName="dialogWrapper" dialogClassName="dialog">
+          <Modal show={showDialog} centered backdropClassName="dialogWrapper" dialogClassName="dialog">
             <Modal.Header closeButton>
               <Modal.Title>lets goo 🚨 {fancyTimeFormat(pomodoroTimer)} 🚨</Modal.Title>
             </Modal.Header>

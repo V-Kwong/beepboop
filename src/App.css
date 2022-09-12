@@ -14,7 +14,7 @@
 .App {
   background-color: #ffffff;
   /* padding: 20px; */
-  margin-left: 7.5vw;
+  /* margin-left: 7.5vw; */
 }
 
 .error {
@@ -86,7 +86,7 @@ section h2 {
 }
 
 td {
-  height: 100%;
+  height: 36px;
   padding: 0;
 }
 
@@ -142,7 +142,7 @@ th {
 
 .habit-cell,
 .daily-cell {
-  width: 40px;
+  width: 36px;
 }
 
 .habit-score-container {

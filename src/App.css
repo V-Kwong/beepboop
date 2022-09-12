@@ -196,9 +196,11 @@ th {
 }
 
 .modal {
-  margin-left: 7.5vw !important;
-  height: 475.56px !important;
-  width: 429.750px !important;
+  height: 453px !important;
+  width: 401.75px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dialog {

@@ -46,7 +46,7 @@ export function Daily(props: { daily: Task; showNoHistory: boolean }) {
   const context = useContext(AppContext);
   const historyMap = new Map<string, number>();
 
-  const { text, history } = props.daily;
+  const { text, history, streak } = props.daily;
 
   logger.debug(text);
   for (let i = 1; i < history.length; i++) {
@@ -110,14 +110,15 @@ export function Daily(props: { daily: Task; showNoHistory: boolean }) {
         />
       </td>
       {dailyDeltas.map(({day, delta}) => (
-        <DailyStatus key={day} day={day} delta={delta!} />
+        <DailyStatus key={day} day={day} delta={delta!} streak={streak} />
       ))}
     </tr>
   );
 }
 
-function DailyStatus(props: { day: string, delta: number | undefined }) {
+function DailyStatus(props: { day: string, delta: number | undefined, streak: number }) {
   let classNames = ["daily-cell"];
+  let symbolNames = ["symbol"];
   let symbol;
 
   if(props.day !== dayjs(new Date()).format(DATE_KEY_FORMAT)) {
@@ -131,7 +132,8 @@ function DailyStatus(props: { day: string, delta: number | undefined }) {
   } else {
     if (!props.delta || props.delta === 0) {
       classNames.push("pass");
-      symbol = "\xa0";
+      symbolNames.push('streak');
+      symbol = props.streak == 0 ? "0🥶" : props.streak + "🔥";
     } else if (props.delta > 0) {
       classNames.push("success");
       symbol = "✓";
@@ -145,7 +147,7 @@ function DailyStatus(props: { day: string, delta: number | undefined }) {
     <td className={classNames.join(" ")}>
       {symbol && (
         <div className="center-wrapper">
-          <span className="symbol">{symbol}</span>
+          <span className={symbolNames.join(" ")}>{symbol}</span>
         </div>
       )}
     </td>

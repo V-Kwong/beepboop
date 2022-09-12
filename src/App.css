@@ -173,6 +173,12 @@ th {
   color: #ffbe5d;
 }
 
+.pass .streak {
+  color: black;
+  /* text-decoration: underline; */
+  font-size: 0.9em;
+}
+
 .symbol {
   color: white;
 }

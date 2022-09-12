@@ -4,6 +4,7 @@ export interface Task {
     text: string;
     type: string;
     value: number;
+    streak: number;
     priority: number;
     history: History[];
     createdAt: string;

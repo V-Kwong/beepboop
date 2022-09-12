@@ -196,8 +196,8 @@ th {
 }
 
 .modal {
-  height: 453px !important;
-  width: 401.75px !important;
+  height: 301px !important;
+  width: 393.969px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -220,12 +220,17 @@ th {
   padding: 6px 12px !important;
 }
 
+.modal-title {
+  font-size: 1.2em !important;
+}
+
 .dialogText {
   margin: 0px;
   text-align: center;
   margin-block-start: 0;
   margin-block-end: 0;
-  line-height: 40px;
+  font-size: 1em !important;
+  line-height: 2em;
 }
 
 .modal-footer {

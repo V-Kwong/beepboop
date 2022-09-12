@@ -317,7 +317,7 @@ export default function UserHistory(props: UserHistoryProps) {
             </div> */}
             <div className="button-container">
               <Button variant="outline-success" onClick={inPomodoroSession ? undefined : startPomodoro}>
-                {inPomodoroSession ? fancyTimeFormat(pomodoroTimer) : '🧠 Pomodoro'}
+                {inPomodoroSession ? fancyTimeFormat(pomodoroTimer) : '🧠 start focus you shithead'}
               </Button>
             </div>
             {/* <div className="button-container">

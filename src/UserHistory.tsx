@@ -4,10 +4,28 @@ import dayjs, { Dayjs } from "dayjs";
 import Confetti from 'react-confetti';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
+import ReactJkMusicPlayer from 'react-jinke-music-player';
+import 'react-jinke-music-player/assets/index.css';
 import logger from "./logger";
 
 import { Task, History } from "./HabiticaTypes";
 import DailyHistory from "./DailyHistory";
+
+import LOFI_MP3 from './Komi-Lofi-Loop.mp3';
+
+const audioList1 = [
+  {
+    name: 'lofi',
+    // singer: 'Luis Fonsi',
+    // cover:
+    //   'http://res.cloudinary.com/alick/image/upload/v1502689731/Despacito_uvolhp.jpg',
+    musicSrc: LOFI_MP3,
+    // support async fetch music src. eg.
+    // musicSrc: async () => {
+    //   return await fetch('/api')
+    // },
+  },
+]
 
 export const DATE_KEY_FORMAT = "YYYYMMDD";
 
@@ -83,6 +101,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
   const [numberOfPieces, setNumberOfPieces] = useState<number>(setRandConfettiNum());
+  const [audio, setAudio] = useState({currentTime: 0, play: () => {}});
 
   // App states
   const [isLoadingUserData, setLoadingUserData] = useState(true);
@@ -185,6 +204,101 @@ export default function UserHistory(props: UserHistoryProps) {
 
   const reflect = () => scoreTask('13ab931b-b04a-47f0-9555-ad3bc4428dd6')
 
+  const audioOptions = {
+    getAudioInstance: (audio : any) => {
+      setAudio(audio);
+    },
+
+    // audio lists model
+    audioLists: audioList1,
+  
+    // default play index of the audio player  [type `number` default `0`]
+    defaultPlayIndex: 0,
+
+    // Specifies movement boundaries. Accepted values:
+    // - `parent` restricts movement within the node's offsetParent
+    //    (nearest node with position relative or absolute), or
+    // - a selector, restricts movement within the targeted node
+    // - An object with `left, top, right, and bottom` properties.
+    //   These indicate how far in each direction the draggable
+    //   can be moved.
+    // Ref: https://github.com/STRML/react-draggable#draggable-api
+    bounds: 'body',
+
+    defaultPosition: {top:250, left:10},
+  
+    // The Audio Can be deleted  [type `Boolean`, default `true`]
+    remove: false,
+  
+    // audio mode        mini | full          [type `String`  default `mini`]
+    // mode: "full",
+  
+    // Whether the audio is played after loading is completed. [type `Boolean` default 'true']
+    autoPlay: false,
+  
+    // Whether you can switch between two modes, full => mini  or mini => full   [type 'Boolean' default 'true']
+    toggleMode: false,
+  
+    // audio cover is show of the "mini" mode [type `Boolean` default 'true']
+    showMiniModeCover: false,
+  
+    // audio playing progress is show of the "mini"  mode
+    showMiniProcessBar: true,
+  
+    // drag the audio progress bar [type `Boolean` default `true`]
+    seeked: false,
+  
+    // Displays the audio load progress bar.  [type `Boolean` default `true`]
+    showProgressLoadBar: true,
+  
+    // play button display of the audio player panel   [type `Boolean` default `true`]
+    showPlay: false,
+  
+    // reload button display of the audio player panel   [type `Boolean` default `true`]
+    showReload: false,
+  
+    // download button display of the audio player panel   [type `Boolean` default `true`]
+    showDownload: false,
+  
+    // loop button display of the audio player panel   [type `Boolean` default `true`]
+    showPlayMode: false,
+  
+    // theme toggle switch  display of the audio player panel   [type `Boolean` default `true`]
+    showThemeSwitch: false,
+  
+    // Extensible custom content       [type 'Array' default '-' ]
+    extendsContent: null,
+  
+    // playModeText show time [type `Number(ms)` default `600`]
+    playModeShowTime: 600,
+  
+    // Whether to try playing the next audio when the current audio playback fails [type `Boolean` default `true`]
+    loadAudioErrorPlayNext: false,
+  
+    // Auto hide the cover photo if no cover photo is available [type `Boolean` default `false`]
+    autoHiddenCover: true,
+  
+    // Enable responsive player, auto toggle desktop and mobile [type `Boolean` default `true`]
+    responsive: false,
+  
+    // audio play handle
+    // onAudioPlay() {
+    //   console.log('audio playing')
+    // },
+
+    onAudioProgress(audioInfo : any) {
+      // console.log('audio progress', audioInfo)
+      let newTimer = NINTY_MIN - audioInfo.currentTime
+      setPomodoroTimer(newTimer)
+    },
+  
+    // The single song is ended handle
+    onAudioEnded() {
+      finishPomodoro()
+      // console.log('audio ended')
+    }
+  }
+
   useEffect(() => {
     if (!("Notification" in window)) {
       console.log("This browser does not support desktop notification");
@@ -249,7 +363,11 @@ export default function UserHistory(props: UserHistoryProps) {
 
   const startPomodoro = () => {
     setInPomodoroSession(true)
-    pomodoroTimeout()
+    // pomodoroTimeout()
+    if (audio) {
+      audio.currentTime = 0
+      audio.play();
+    }
     handleShowDialog()
   }
 
@@ -324,6 +442,7 @@ export default function UserHistory(props: UserHistoryProps) {
               <Button variant="outline-success" onClick={reflect}>✓ Reflect</Button>
             </div> */}
           </div>
+          <ReactJkMusicPlayer {...audioOptions} mode="mini" />
           <Confetti
             width={windowDimensions.width}
             height={windowDimensions.height}

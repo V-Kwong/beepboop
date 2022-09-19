@@ -243,3 +243,25 @@ th {
 .modal-footer {
   display: none !important;
 }
+
+.music-player {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.audio-circle-process-bar {
+  width: 48px !important;
+  height: 48px !important;
+  top: -60px !important;
+}
+
+.audio-circle-process-bar circle {
+  cx: 36 !important;
+  cy: 24 !important;
+  r: 24 !important;
+}
+
+.react-jinke-music-player .music-player-controller {
+  width: 48px !important;
+  height: 48px !important;
+}

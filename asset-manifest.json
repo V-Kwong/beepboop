@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/beepboop/static/css/main.77d60a76.chunk.css",
-    "main.js": "/beepboop/static/js/main.c0ed18b8.chunk.js",
-    "main.js.map": "/beepboop/static/js/main.c0ed18b8.chunk.js.map",
+    "main.css": "/beepboop/static/css/main.5976149a.chunk.css",
+    "main.js": "/beepboop/static/js/main.b0e06fd2.chunk.js",
+    "main.js.map": "/beepboop/static/js/main.b0e06fd2.chunk.js.map",
     "runtime-main.js": "/beepboop/static/js/runtime-main.2c1bcac6.js",
     "runtime-main.js.map": "/beepboop/static/js/runtime-main.2c1bcac6.js.map",
     "static/css/2.44d222d2.chunk.css": "/beepboop/static/css/2.44d222d2.chunk.css",
@@ -10,15 +10,15 @@
     "static/js/2.c8e46608.chunk.js.map": "/beepboop/static/js/2.c8e46608.chunk.js.map",
     "index.html": "/beepboop/index.html",
     "static/css/2.44d222d2.chunk.css.map": "/beepboop/static/css/2.44d222d2.chunk.css.map",
-    "static/css/main.77d60a76.chunk.css.map": "/beepboop/static/css/main.77d60a76.chunk.css.map",
+    "static/css/main.5976149a.chunk.css.map": "/beepboop/static/css/main.5976149a.chunk.css.map",
     "static/js/2.c8e46608.chunk.js.LICENSE.txt": "/beepboop/static/js/2.c8e46608.chunk.js.LICENSE.txt",
-    "static/media/Komi-Lofi-Loop.3f23ecb4.mp3": "/beepboop/static/media/Komi-Lofi-Loop.3f23ecb4.mp3"
+    "static/media/lofi-pomodoro.24a49f67.mp3": "/beepboop/static/media/lofi-pomodoro.24a49f67.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.2c1bcac6.js",
     "static/css/2.44d222d2.chunk.css",
     "static/js/2.c8e46608.chunk.js",
-    "static/css/main.77d60a76.chunk.css",
-    "static/js/main.c0ed18b8.chunk.js"
+    "static/css/main.5976149a.chunk.css",
+    "static/js/main.b0e06fd2.chunk.js"
   ]
 }

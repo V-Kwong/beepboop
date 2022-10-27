@@ -95,7 +95,7 @@ export function Habit(props: { habit: Task; showNoHistory: boolean }) {
 }
 
 function HabitScore(props: { up: number; down: number }) {
-  let colour = props.up >= 4 ? "success" : "fail";
+  let colour = props.up >= 1 ? "success" : "fail";
   return (
     <td className="habit-cell">
       <div className="habit-score-container">

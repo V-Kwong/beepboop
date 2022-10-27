@@ -65,7 +65,7 @@ function setRandConfettiNum() {
   return getRandomInt(2000, 5000)
 }
 
-const NINTY_MIN = 90 * 60;
+const FIFTY_MIN = 50 * 60;
 
 function fancyTimeFormat(duration : number) {   
   // Hours, minutes and seconds
@@ -122,7 +122,7 @@ export default function UserHistory(props: UserHistoryProps) {
 
   // Pomodoro
   const [inPomodoroSession, setInPomodoroSession] = useState(false);
-  const [pomodoroTimer, setPomodoroTimer] = useState(NINTY_MIN);
+  const [pomodoroTimer, setPomodoroTimer] = useState(FIFTY_MIN);
   const pomodoroTimerRef = useRef(pomodoroTimer);
   pomodoroTimerRef.current = pomodoroTimer;
 
@@ -288,7 +288,7 @@ export default function UserHistory(props: UserHistoryProps) {
 
     onAudioProgress(audioInfo : any) {
       // console.log('audio progress', audioInfo)
-      let newTimer = NINTY_MIN - audioInfo.currentTime
+      let newTimer = FIFTY_MIN - audioInfo.currentTime
       setPomodoroTimer(newTimer)
     },
   
@@ -387,7 +387,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const finishPomodoro = () => {
     handleCloseDialog()
     setInPomodoroSession(false)
-    setPomodoroTimer(NINTY_MIN)
+    setPomodoroTimer(FIFTY_MIN)
     scorePomodoro()
     new Notification('pomodoro is finished yo 🎉', {
       icon: 'https://vwskwong.github.io/assets/Logo/apple-touch-icon.png',

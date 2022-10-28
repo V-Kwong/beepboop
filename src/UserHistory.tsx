@@ -11,7 +11,7 @@ import logger from "./logger";
 import { Task, History } from "./HabiticaTypes";
 import DailyHistory from "./DailyHistory";
 
-import LOFI_MP3 from './lofi-pomodoro.mp3';
+import LOFI_MP3 from './lofi-pomodoro-50min.mp3';
 
 const audioList1 = [
   {

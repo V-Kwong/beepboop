@@ -423,9 +423,9 @@ export default function UserHistory(props: UserHistoryProps) {
             setNumDaysToShow={setNumDaysToShow}
             toggleTaskIcons={() => setShowTaskIcons(!showTaskIcons)}
           /> */}
-          {/* <div className="identity">
-            <span>Ambitious ♦ Mindful ♦ Disciplined</span>
-          </div> */}
+          <div className="identity">
+            <span>Disciplined ♦ Ambitious ♦ Universal</span>
+          </div>
           <DailyHistory data={[...dailys.slice(0, -1), ...habits, ...dailys.slice(-1)]} />
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}

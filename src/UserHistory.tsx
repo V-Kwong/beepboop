@@ -34,7 +34,7 @@ const CLIENT_KEY = '0d9428fd-d6fa-45f3-a4db-f130e3ef10ea-HabiticaTracker';
 const USER_PATH = '/user';
 const TASKS_PATH = '/tasks/user';
 const TODOS_COMPLETED_PATH = '/tasks/user?type=completedTodos';
-const DEFAULT_NUM_DAYS_TO_SHOW = 7;
+const DEFAULT_NUM_DAYS_TO_SHOW = 30;
 
 /**
  * Tasks completed during Cron time are tasks which were completed the previous

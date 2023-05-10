@@ -34,7 +34,8 @@ const CLIENT_KEY = '0d9428fd-d6fa-45f3-a4db-f130e3ef10ea-HabiticaTracker';
 const USER_PATH = '/user';
 const TASKS_PATH = '/tasks/user';
 const TODOS_COMPLETED_PATH = '/tasks/user?type=completedTodos';
-const DEFAULT_NUM_DAYS_TO_SHOW = 30;
+const NUM_DAYS_WEEK = 8;
+const NUM_DAYS_MONTH = 31;
 
 /**
  * Tasks completed during Cron time are tasks which were completed the previous
@@ -113,9 +114,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const [isLoadingTodoData, setLoadingTodoData] = useState(true);
 
   // User options
-  const [numDaysToShow, setNumDaysToShow] = useState<number>(
-    DEFAULT_NUM_DAYS_TO_SHOW,
-  );
+  const [numDaysToShow, setNumDaysToShow] = useState<number>(NUM_DAYS_WEEK);
   const [showTaskIcons, setShowTaskIcons] = useState<boolean>(false);
 
   // User data
@@ -135,6 +134,12 @@ export default function UserHistory(props: UserHistoryProps) {
   const handleShowDialog = () => setShowDialog(true);
 
   const {userId, userApiKey} = props;
+
+  function toggleNumDaysToShow() {
+    setNumDaysToShow(
+      numDaysToShow === NUM_DAYS_WEEK ? NUM_DAYS_MONTH : NUM_DAYS_WEEK,
+    );
+  }
 
   const onConfettiComplete = () => {
     setNumberOfPieces(setRandConfettiNum());
@@ -434,6 +439,7 @@ export default function UserHistory(props: UserHistoryProps) {
             <span>Disciplined ♦ Ambitious ♦ Universal</span>
           </div> */}
           <DailyHistory
+            toggleNumDaysToShow={toggleNumDaysToShow}
             data={[...dailys.slice(0, -1), ...habits, ...dailys.slice(-1)]}
           />
           {/* <HabitHistory data={habits} /> */}

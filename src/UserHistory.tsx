@@ -114,7 +114,7 @@ export default function UserHistory(props: UserHistoryProps) {
   const [isLoadingTodoData, setLoadingTodoData] = useState(true);
 
   // User options
-  const [numDaysToShow, setNumDaysToShow] = useState<number>(NUM_DAYS_WEEK);
+  const [numDaysToShow, setNumDaysToShow] = useState<number>(NUM_DAYS_MONTH);
   const [showTaskIcons, setShowTaskIcons] = useState<boolean>(false);
 
   // User data

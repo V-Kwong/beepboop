@@ -237,7 +237,7 @@ export default function UserHistory(props: UserHistoryProps) {
     // Ref: https://github.com/STRML/react-draggable#draggable-api
     bounds: 'body',
 
-    defaultPosition: {top: 260, left: 10},
+    defaultPosition: {top: 145, left: 10},
 
     // The Audio Can be deleted  [type `Boolean`, default `true`]
     remove: false,
@@ -477,9 +477,7 @@ export default function UserHistory(props: UserHistoryProps) {
             backdropClassName="dialogWrapper"
             dialogClassName="dialog">
             <Modal.Header closeButton>
-              <Modal.Title>
-                lets goo 🚨 {fancyTimeFormat(pomodoroTimer)} 🚨
-              </Modal.Title>
+              <Modal.Title>🚨 {fancyTimeFormat(pomodoroTimer)} 🚨</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <p className="dialogText">
@@ -490,8 +488,8 @@ export default function UserHistory(props: UserHistoryProps) {
                 💬 Affirm: Who do I want to be?
                 <br />
                 🎯 What do I want to accomplish right now?
-                <br />
-                🧩 Breakdown the task
+                {/* <br />
+                🧩 Breakdown the task */}
                 <br />
                 🫵 Point n Call
               </p>

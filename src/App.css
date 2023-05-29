@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   /* justify-content: center; */
-  padding-bottom: 200px;
+  /* padding-bottom: 200px; */
 }
 
 .center-wrapper {
@@ -204,11 +204,15 @@ th {
 }
 
 .modal {
-  height: 301px !important;
-  width: 393.969px !important;
+  height: 215px !important;
+  width: 1404px !important;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modal.show .modal-dialog {
+  margin-top: 0px !important;
 }
 
 .dialog {

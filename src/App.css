@@ -1,7 +1,7 @@
 .app-wrapper {
   width: 100%;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   /* padding-bottom: 200px; */
 }
 
@@ -205,7 +205,7 @@ th {
 
 .modal {
   height: 215px !important;
-  width: 1404px !important;
+  width: 100vw !important;
   display: flex;
   justify-content: center;
   align-items: center;

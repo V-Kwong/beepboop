@@ -237,7 +237,7 @@ export default function UserHistory(props: UserHistoryProps) {
     // Ref: https://github.com/STRML/react-draggable#draggable-api
     bounds: 'body',
 
-    defaultPosition: {top: 145, left: 10},
+    defaultPosition: {top: 145, left: 300},
 
     // The Audio Can be deleted  [type `Boolean`, default `true`]
     remove: false,

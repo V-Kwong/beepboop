@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/beepboop/static/css/main.8999bb4a.chunk.css",
-    "main.js": "/beepboop/static/js/main.a92f915f.chunk.js",
-    "main.js.map": "/beepboop/static/js/main.a92f915f.chunk.js.map",
+    "main.js": "/beepboop/static/js/main.5c1addce.chunk.js",
+    "main.js.map": "/beepboop/static/js/main.5c1addce.chunk.js.map",
     "runtime-main.js": "/beepboop/static/js/runtime-main.2c1bcac6.js",
     "runtime-main.js.map": "/beepboop/static/js/runtime-main.2c1bcac6.js.map",
     "static/css/2.44d222d2.chunk.css": "/beepboop/static/css/2.44d222d2.chunk.css",
-    "static/js/2.c8e46608.chunk.js": "/beepboop/static/js/2.c8e46608.chunk.js",
-    "static/js/2.c8e46608.chunk.js.map": "/beepboop/static/js/2.c8e46608.chunk.js.map",
+    "static/js/2.b0a3262c.chunk.js": "/beepboop/static/js/2.b0a3262c.chunk.js",
+    "static/js/2.b0a3262c.chunk.js.map": "/beepboop/static/js/2.b0a3262c.chunk.js.map",
     "index.html": "/beepboop/index.html",
     "static/css/2.44d222d2.chunk.css.map": "/beepboop/static/css/2.44d222d2.chunk.css.map",
     "static/css/main.8999bb4a.chunk.css.map": "/beepboop/static/css/main.8999bb4a.chunk.css.map",
-    "static/js/2.c8e46608.chunk.js.LICENSE.txt": "/beepboop/static/js/2.c8e46608.chunk.js.LICENSE.txt",
+    "static/js/2.b0a3262c.chunk.js.LICENSE.txt": "/beepboop/static/js/2.b0a3262c.chunk.js.LICENSE.txt",
     "static/media/lofi-pomodoro-90min.24a49f67.mp3": "/beepboop/static/media/lofi-pomodoro-90min.24a49f67.mp3"
   },
   "entrypoints": [
     "static/js/runtime-main.2c1bcac6.js",
     "static/css/2.44d222d2.chunk.css",
-    "static/js/2.c8e46608.chunk.js",
+    "static/js/2.b0a3262c.chunk.js",
     "static/css/main.8999bb4a.chunk.css",
-    "static/js/main.a92f915f.chunk.js"
+    "static/js/main.5c1addce.chunk.js"
   ]
 }

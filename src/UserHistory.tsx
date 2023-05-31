@@ -440,7 +440,7 @@ export default function UserHistory(props: UserHistoryProps) {
           </div> */}
           <DailyHistory
             toggleNumDaysToShow={toggleNumDaysToShow}
-            data={[...dailys.slice(0, -1), ...habits, ...dailys.slice(-1)]}
+            data={[...dailys, ...habits]}
           />
           {/* <HabitHistory data={habits} /> */}
           {/* <TodoHistory data={todos} /> */}
